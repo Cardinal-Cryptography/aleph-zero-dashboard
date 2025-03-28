@@ -9,7 +9,7 @@ on:
 jobs:
   build-and-push:
     name: Build and push
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     environment:
       name: devnet
     steps:
@@ -29,7 +29,7 @@ jobs:
 
   deploy-to-devnet:
     name: Deploy to devnet
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     needs: [build-and-push]
     environment:
       name: devnet
@@ -52,7 +52,7 @@ jobs:
 
   slack-notification:
     name: Slack notification
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     needs: [deploy-to-devnet]
     if: always()
     steps:
